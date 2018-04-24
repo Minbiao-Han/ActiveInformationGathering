@@ -32,26 +32,28 @@ for i = 1:timeout
         robot = robotStep1(robot, v, d);
         human = humanStep1(out, robot, human, v, d);
     elseif (i > 5 && i <= 10)
-        human = humanStep1(out, robot, human, v, d); 
+        human = humanStep1(out, robot, human, v, 1); 
     elseif (i > 10 && i <= 13)
         robot = robotStep1(robot, v, d);
-    elseif (i > 13 && i <= 20)
+    elseif (i > 13 && i <= 22)
         robot = robotStep1(robot, v, d);
         human = humanStep1(out, robot, human, v, d); 
-    elseif (i > 20 && i <= 25)
-        human = humanStep1(out, robot, human, v, d+1);
-    elseif (i > 25 && i <= 27) 
+    elseif (i > 22 && i <= 26)
+        human = humanStep1(out, robot, human, v, 2);
+    elseif (i > 26 && i <= 28) 
         robot = robotStep1(robot, v, d);
-    elseif (i > 27 && i <= 35)
+    elseif (i > 28 && i <= 45)
         robot = robotStep1(robot, v, d);
         human = humanStep1(out, robot, human, v, d);
-    elseif (i > 36 && i <= 40)
-        human = humanStep1(out, robot, human, v, d+2);
-    elseif (i > 41 && i <= 41)
+    elseif (i > 45 && i <= 50)
+        human = humanStep1(out, robot, human, v, 2);
+    elseif (i > 50 && i <= 52)
         robot = robotStep1(robot, v, d);
-    else 
+    elseif (i > 52 && i <= 82) 
         robot = robotStep1(robot, v, d);
-        human = humanStep1(out, robot, human, v, d+3);
+        human = humanStep1(out, robot, human, v, 0);
+    else
+        human = humanStep1(out, robot, human, v, 0);
     end
 end
 
@@ -61,8 +63,9 @@ for i = 1:size(pos1, 1)
     plot(pos2(1:i, 1), pos2(1:i, 2), 'r+-');
     plot(pos1(i, 1), pos1(i, 2), 'sb', 'MarkerSize',12,'MarkerFaceColor','b');
     plot(pos2(i, 1), pos2(i, 2), 'sr', 'MarkerSize',12,'MarkerFaceColor','r');
-    %plot(robot.xd, robot.yd, 'xb', 'MarkerSize',10,'MarkerFaceColor','b');
-    %plot(human.xd, human.yd, 'xr', 'MarkerSize',10,'MarkerFaceColor','r');
+    if (pos1(i, 1) == pos2(i, 1))
+        plot(pos2(i, 1), pos2(i, 2), '*r', 'MarkerSize',30,'MarkerFaceColor','r');
+    end
     hold off;
     
     % axis
@@ -74,3 +77,5 @@ for i = 1:size(pos1, 1)
     
     pause(.5)
 end
+
+%plot(80, 0, '*r', 'MarkerSize',12,'MarkerFaceColor','r');
