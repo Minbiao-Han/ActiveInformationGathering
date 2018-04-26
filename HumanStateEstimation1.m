@@ -63,6 +63,8 @@ for i = 1:size(pos1, 1)
     plot(pos2(1:i, 1), pos2(1:i, 2), 'r+-');
     plot(pos1(i, 1), pos1(i, 2), 'sb', 'MarkerSize',12,'MarkerFaceColor','b');
     plot(pos2(i, 1), pos2(i, 2), 'sr', 'MarkerSize',12,'MarkerFaceColor','r');
+    %plot(robot.xd, robot.yd, 'xb', 'MarkerSize',10,'MarkerFaceColor','b');
+    %plot(human.xd, human.yd, 'xr', 'MarkerSize',10,'MarkerFaceColor','r');
     if (pos1(i, 1) == pos2(i, 1))
         plot(pos2(i, 1), pos2(i, 2), '*r', 'MarkerSize',30,'MarkerFaceColor','r');
     end
